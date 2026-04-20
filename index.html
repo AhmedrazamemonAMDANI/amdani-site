@@ -1,24 +1,271 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Amdani Fragrances</title><link rel="stylesheet" href="frontend/assets/css/styles.css"></head><body>
-<div class="cursor-glow" id="cursorGlow"></div>
-<div class="float-bottle logo-bottle"><img src="frontend/assets/images/RaxaXc.jpg" alt="Amdani logo"></div>
-<div class="topbar">Exclusive launch offers live now. Spin the wheel for a special surprise discount.</div>
-<header><div class="wrap nav"><div class="brand"><div class="logo"><img src="frontend/assets/images/logo.svg" alt="Amdani logo"></div><div><h1>AMDANI</h1><p>FRAGRANCES</p></div></div><div class="menu"><a href="index.html#categories">Categories</a><a href="frontend/products.html">Collection</a><a href="index.html#offers">Offers</a><a href="frontend/tracking.html">Tracking</a><a href="frontend/order.html">Order</a><a href="frontend/contact.html">Contact</a></div><div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn2" id="openCartBtn">Cart</button><a class="btn" href="https://wa.me/923103240592" target="_blank">WhatsApp Order</a></div></div></header>
-<div class="cart glass" id="cartBox"><div class="card"><div style="display:flex;justify-content:space-between;align-items:center"><div class="tag">YOUR CART</div><button class="btn2" id="closeCartBtn">Close</button></div><div id="cartItems" class="status" style="margin-top:14px"></div><div class="status-item" style="margin-top:10px"><span>Total</span><strong style="margin-left:auto" id="cartTotal">Rs. 0</strong></div><a class="btn" href="frontend/cart.html" style="margin-top:14px;width:100%">Open Cart Page</a></div></div>
-<main>
-<section><div class="wrap hero"><div><span class="eyebrow">3D HD ULTRA VIP EXPERIENCE</span><h2 class="big">Luxury that leaves a <span class="grad">lasting impression</span></h2><div class="vip-badge">VIP Exclusive Collection</div><div class="vip-strip"><button class="vip-btn">24 Hour Lasting</button><button class="vip-btn">12 Hour Lasting</button><button class="vip-btn">Imported Oils</button><button class="vip-btn">Premium Projection</button><button class="vip-btn">Luxury Gift Feel</button><button class="vip-btn">Beast Mode Performance</button><button class="vip-btn">Luxury Bottle Design</button><button class="vip-btn">Men • Women • Unisex</button><button class="vip-btn">Middle East Inspired</button><button class="vip-btn">Smooth Premium Feel</button></div><p class="muted">Premium black and gold fragrance store experience with elegant motion, luxury product pages, exclusive offers, secure order flow, and smooth customer ordering.</p><div class="hero-actions"><a class="btn" href="frontend/products.html">Explore Collection</a><a class="btn2" href="frontend/order.html">Order Form</a></div><div class="grid2" style="margin-top:18px"><div class="glass feature">Premium black and gold luxury identity.</div><div class="glass feature">Smooth shopping with cart and WhatsApp support.</div></div></div><div class="hero-right"><div class="halo"></div><div class="hero-bottle logo-bottle"><img src="frontend/assets/images/RaxaXc.jpg" alt="Amdani logo"></div></div></div></section>
-<section id="categories" style="padding-top:10px"><div class="wrap"><div class="section-head"><div><div class="tag">SHOP BY CATEGORY</div><h3 style="margin:8px 0 0;font:500 48px Georgia,serif">Signature categories</h3></div></div><div class="grid4"><a href="frontend/products.html?cat=men" class="category-card">Men</a>
-<a href="frontend/products.html?cat=women" class="category-card">Women</a>
-<a href="frontend/products.html?cat=unisex" class="category-card">Unisex</a>
-<a href="frontend/products.html?cat=middleeast" class="category-card">Middle East</a>
-<a href="frontend/products.html?cat=luxury" class="category-card">Luxury Bottles</a>
-<a href="frontend/products.html?cat=arabic" class="category-card">Arabic Collection</a>
-<a href="frontend/products.html?cat=signature" class="category-card">Signature Scents</a>
-<a href="frontend/products.html?cat=gifts" class="category-card">Gift Sets</a></div></div></section>
-<section><div class="wrap"><div class="section-head"><div><div class="tag">SIGNATURE COLLECTION</div><h3 style="margin:8px 0 0;font:500 48px Georgia,serif">Featured perfumes</h3></div><a class="btn" href="frontend/products.html">View All Products</a></div><div class="grid3" id="productGrid"></div></div></section>
-<section id="offers"><div class="wrap split"><div class="glass card shine"><div class="tag">SPIN & WIN</div><h3 style="margin:10px 0 0;font:500 42px Georgia,serif">Spin for your offer</h3><p class="muted">A special surprise discount may unlock for your selected fragrance.</p><div class="hero-actions"><button class="btn" id="spinBtn">Spin Now</button><div class="glass" style="padding:14px 18px" id="spinResult">Your reward will appear here</div></div><div id="spinLockInfo" class="muted" style="margin-top:12px"></div><div class="count" id="timer"></div></div><div class="glass card"><div class="tag">SELECTED ORDER SUMMARY</div><h3 style="margin:10px 0 0;font:500 42px Georgia,serif" id="sumName">Royal Oud</h3><p class="muted" id="sumCat">Luxury Oud</p><div class="status"><div class="status-item"><span>Original Price</span><strong style="margin-left:auto" id="sumOld">Rs. 4000</strong></div><div class="status-item"><span>Current Price</span><strong style="margin-left:auto;color:#ffe09a" id="sumCur">Rs. 2000</strong></div><div class="status-item"><span>Your Price</span><strong style="margin-left:auto;color:#fff0b8" id="sumFinal">Rs. 2000</strong></div><div class="status-item"><span>Lasting</span><strong style="margin-left:auto;color:#ffe09a" id="sumLasting">24 Hours</strong></div></div></div></div></section>
-<section><div class="wrap split"><div class="glass card"><div class="tag">TRACKING</div><h3 style="margin:10px 0 0;font:500 42px Georgia,serif">Track your order</h3><p class="muted">Use your tracking ID on the tracking page to check your status.</p><a class="btn" href="frontend/tracking.html">Open Tracking Page</a></div><div class="glass card"><div class="tag">ORDER NOW</div><h3 style="margin:10px 0 0;font:500 42px Georgia,serif">Fast checkout</h3><p class="muted">Place your order with COD, JazzCash, or NayaPay.</p><a class="btn" href="frontend/order.html">Open Order Page</a></div></div></section>
-</main>
-<div class="popup" id="livePopup"><div class="tag">LIVE ORDER</div><div id="popupText" style="margin-top:8px">Ahmed from Karachi just ordered Royal Oud</div></div>
-<div class="floating-wa"><a class="btn" href="https://wa.me/923103240592" target="_blank">WhatsApp</a></div>
-<footer class="site-footer"><div class="wrap footer-wrap"><div class="footer-left"><div class="footer-brand"><img src="frontend/assets/images/RaxaXc.jpg" alt="Amdani logo" class="footer-logo"><div><h3>AMDANI FRAGRANCES</h3><p>Luxury fragrance experience crafted with premium style.</p></div></div><div class="footer-dev">Website developed by <strong>Muhammad Ahmed Amdani</strong></div></div><div class="footer-right"><h4>Follow Us</h4><div class="footer-socials"><a href="#" target="_blank" class="social-pill"><span class="social-icon">📸</span><span>Follow Instagram</span></a><a href="#" target="_blank" class="social-pill"><span class="social-icon">🎵</span><span>Follow TikTok</span></a><a href="#" target="_blank" class="social-pill"><span class="social-icon">📘</span><span>Follow Facebook</span></a></div><p class="footer-note">Links baad me khud add kar dena.</p></div></div></footer>
-<script src="frontend/assets/js/app.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Amdani Fragrances</title>
+  <link rel="stylesheet" href="frontend/assets/css/styles.css" />
+</head>
+<body>
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <div class="float-bottle logo-bottle">
+    <img src="frontend/assets/images/RaxaXc.jpg" alt="Amdani bottle" />
+  </div>
+
+  <div class="topbar">
+    Exclusive launch offers live now. Spin the wheel for a special surprise discount.
+  </div>
+
+  <header>
+    <div class="wrap nav">
+      <div class="brand">
+        <div class="logo">
+          <img src="frontend/assets/images/logo.svg" alt="Amdani logo" />
+        </div>
+        <div>
+          <h1>AMDANI</h1>
+          <p>FRAGRANCES</p>
+        </div>
+      </div>
+
+      <div class="menu">
+        <a href="#categories">Categories</a>
+        <a href="frontend/products.html">Collection</a>
+        <a href="#offers">Offers</a>
+        <a href="frontend/tracking.html">Tracking</a>
+        <a href="frontend/order.html">Order</a>
+        <a href="frontend/contact.html">Contact</a>
+      </div>
+
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <button class="btn2" id="openCartBtn">Cart</button>
+        <a class="btn" href="https://wa.me/923103240592" target="_blank">WhatsApp Order</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="cart glass" id="cartBox">
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <div class="tag">YOUR CART</div>
+        <button class="btn2" id="closeCartBtn">Close</button>
+      </div>
+
+      <div id="cartItems" class="status" style="margin-top:14px"></div>
+
+      <div class="status-item" style="margin-top:10px">
+        <span>Total</span>
+        <strong style="margin-left:auto" id="cartTotal">Rs. 0</strong>
+      </div>
+
+      <a class="btn" href="frontend/cart.html" style="margin-top:14px;width:100%">
+        Open Cart Page
+      </a>
+    </div>
+  </div>
+
+  <main>
+    <section>
+      <div class="wrap hero">
+        <div>
+          <span class="eyebrow">3D HD ULTRA VIP EXPERIENCE</span>
+
+          <h2 class="big">
+            Luxury that leaves a <span class="grad">lasting impression</span>
+          </h2>
+
+          <div class="vip-badge">VIP Exclusive Collection</div>
+
+          <div class="vip-strip">
+            <button class="vip-btn">24 Hour Lasting</button>
+            <button class="vip-btn">12 Hour Lasting</button>
+            <button class="vip-btn">Imported Oils</button>
+            <button class="vip-btn">Premium Projection</button>
+            <button class="vip-btn">Luxury Gift Feel</button>
+            <button class="vip-btn">Beast Mode Performance</button>
+            <button class="vip-btn">Luxury Bottle Design</button>
+            <button class="vip-btn">Men • Women • Unisex</button>
+            <button class="vip-btn">Middle East Inspired</button>
+            <button class="vip-btn">Smooth Premium Feel</button>
+          </div>
+
+          <p class="muted">
+            Premium black and gold fragrance store experience with elegant motion,
+            luxury product pages, exclusive offers, secure order flow, and smooth customer ordering.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn" href="frontend/products.html">Explore Collection</a>
+            <a class="btn2" href="frontend/order.html">Order Form</a>
+          </div>
+
+          <div class="grid2" style="margin-top:18px">
+            <div class="glass feature">Premium black and gold luxury identity.</div>
+            <div class="glass feature">Smooth shopping with cart and WhatsApp support.</div>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <div class="halo"></div>
+          <div class="hero-bottle logo-bottle">
+            <img src="frontend/assets/images/RaxaXc.jpg" alt="Amdani luxury image" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="categories" style="padding-top:10px">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="tag">SHOP BY CATEGORY</div>
+            <h3 style="margin:8px 0 0;font:500 48px Georgia,serif">Signature categories</h3>
+          </div>
+        </div>
+
+        <div class="grid4">
+          <a href="frontend/products.html?cat=male" class="category-card">Men</a>
+          <a href="frontend/products.html?cat=female" class="category-card">Women</a>
+          <a href="frontend/products.html?cat=unisex" class="category-card">Unisex</a>
+          <a href="frontend/products.html?cat=middle-east" class="category-card">Middle East</a>
+          <a href="frontend/products.html?cat=bottles" class="category-card">Luxury Bottles</a>
+          <a href="frontend/products.html?cat=middle-east" class="category-card">Arabic Collection</a>
+          <a href="frontend/products.html?cat=all" class="category-card">Signature Scents</a>
+          <a href="frontend/products.html?cat=all" class="category-card">Gift Sets</a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="tag">SIGNATURE COLLECTION</div>
+            <h3 style="margin:8px 0 0;font:500 48px Georgia,serif">Featured perfumes</h3>
+          </div>
+          <a class="btn" href="frontend/products.html">View All Products</a>
+        </div>
+
+        <div class="grid3" id="productGrid"></div>
+      </div>
+    </section>
+
+    <section id="offers">
+      <div class="wrap split">
+        <div class="glass card shine">
+          <div class="tag">SPIN & WIN</div>
+          <h3 style="margin:10px 0 0;font:500 42px Georgia,serif">Spin for your offer</h3>
+          <p class="muted">A special surprise discount may unlock for your selected fragrance.</p>
+
+          <div class="hero-actions">
+            <button class="btn" id="spinBtn">Spin Now</button>
+            <div class="glass" style="padding:14px 18px" id="spinResult">Your reward will appear here</div>
+          </div>
+
+          <div id="spinLockInfo" class="muted" style="margin-top:12px"></div>
+          <div class="count" id="timer"></div>
+        </div>
+
+        <div class="glass card">
+          <div class="tag">SELECTED ORDER SUMMARY</div>
+          <h3 style="margin:10px 0 0;font:500 42px Georgia,serif" id="sumName">Royal Oud</h3>
+          <p class="muted" id="sumCat">Luxury Oud</p>
+
+          <div class="status">
+            <div class="status-item">
+              <span>Original Price</span>
+              <strong style="margin-left:auto" id="sumOld">Rs. 4000</strong>
+            </div>
+
+            <div class="status-item">
+              <span>Current Price</span>
+              <strong style="margin-left:auto;color:#ffe09a" id="sumCur">Rs. 2000</strong>
+            </div>
+
+            <div class="status-item">
+              <span>Your Price</span>
+              <strong style="margin-left:auto;color:#fff0b8" id="sumFinal">Rs. 2000</strong>
+            </div>
+
+            <div class="status-item">
+              <span>Lasting</span>
+              <strong style="margin-left:auto;color:#ffe09a" id="sumLasting">24 Hours</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap split">
+        <div class="glass card">
+          <div class="tag">TRACKING</div>
+          <h3 style="margin:10px 0 0;font:500 42px Georgia,serif">Track your order</h3>
+          <p class="muted">Use your tracking ID on the tracking page to check your status.</p>
+          <a class="btn" href="frontend/tracking.html">Open Tracking Page</a>
+        </div>
+
+        <div class="glass card">
+          <div class="tag">ORDER NOW</div>
+          <h3 style="margin:10px 0 0;font:500 42px Georgia,serif">Fast checkout</h3>
+          <p class="muted">Place your order with COD, JazzCash, or NayaPay.</p>
+          <a class="btn" href="frontend/order.html">Open Order Page</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="popup" id="livePopup">
+    <div class="tag">LIVE ORDER</div>
+    <div id="popupText" style="margin-top:8px">Ahmed from Karachi just ordered Royal Oud</div>
+  </div>
+
+  <div class="floating-wa">
+    <a class="btn" href="https://wa.me/923103240592" target="_blank">WhatsApp</a>
+  </div>
+
+  <footer class="site-footer">
+    <div class="wrap footer-wrap">
+      <div class="footer-left">
+        <div class="footer-brand">
+          <img src="frontend/assets/images/RaxaXc.jpg" alt="Amdani logo" class="footer-logo" />
+          <div>
+            <h3>AMDANI FRAGRANCES</h3>
+            <p>Luxury fragrance experience crafted with premium style.</p>
+          </div>
+        </div>
+
+        <div class="footer-dev">
+          Website developed by <strong>Muhammad Ahmed Amdani</strong>
+        </div>
+      </div>
+
+      <div class="footer-right">
+        <h4>Follow Us</h4>
+
+        <div class="footer-socials">
+          <a href="#" target="_blank" class="social-pill">
+            <span class="social-icon">📸</span>
+            <span>Follow Instagram</span>
+          </a>
+
+          <a href="#" target="_blank" class="social-pill">
+            <span class="social-icon">🎵</span>
+            <span>Follow TikTok</span>
+          </a>
+
+          <a href="#" target="_blank" class="social-pill">
+            <span class="social-icon">📘</span>
+            <span>Follow Facebook</span>
+          </a>
+        </div>
+
+        <p class="footer-note">Links baad me khud add kar dena.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="frontend/assets/js/app.js"></script>
+</body>
+</html>
