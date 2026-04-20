@@ -1,1 +1,118 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Product - Amdani</title><link rel="stylesheet" href="assets/css/styles.css"></head><body><div class="cursor-glow" id="cursorGlow"></div><div class="topbar">Single perfume detail page.</div><header><div class="wrap nav"><div class="brand"><div class="logo"><img src="assets/images/logo.svg" alt="logo"></div><div><h1>AMDANI</h1><p>FRAGRANCES</p></div></div><div class="menu"><a href="index.html">Home</a><a href="products.html">Products</a><a href="cart.html">Cart</a><a href="order.html">Order</a></div><div style="display:flex;gap:10px"><button class="btn2" id="openCartBtn">Cart</button></div></div></header><div class="cart glass" id="cartBox"><div class="card"><div style="display:flex;justify-content:space-between;align-items:center"><div class="tag">YOUR CART</div><button class="btn2" id="closeCartBtn">Close</button></div><div id="cartItems" class="status" style="margin-top:14px"></div><div class="status-item" style="margin-top:10px"><span>Total</span><strong style="margin-left:auto" id="cartTotal">Rs. 0</strong></div></div></div><main><section class="page-title"><div class="wrap"><div class="tag">DETAIL PAGE</div><h2>Product detail</h2></div></section><section style="padding-top:10px"><div class="wrap" id="productDetail"></div></section></main><script src="assets/js/app.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order - Amdani</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <div class="topbar">Fast and secure luxury order form.</div>
+
+  <header>
+    <div class="wrap nav">
+      <div class="brand">
+        <div class="logo">
+          <img src="assets/images/logo.svg" alt="logo">
+        </div>
+        <div>
+          <h1>AMDANI</h1>
+          <p>FRAGRANCES</p>
+        </div>
+      </div>
+
+      <div class="menu">
+        <a href="../index.html">Home</a>
+        <a href="../index.html#categories">Categories</a>
+        <a href="products.html">Collection</a>
+        <a href="../index.html#offers">Offers</a>
+        <a href="tracking.html">Tracking</a>
+        <a href="order.html">Order</a>
+        <a href="contact.html">Contact</a>
+      </div>
+
+      <div style="display:flex;gap:10px">
+        <button class="btn2" id="openCartBtn">Cart</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="cart glass" id="cartBox">
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <div class="tag">YOUR CART</div>
+        <button class="btn2" id="closeCartBtn">Close</button>
+      </div>
+      <div id="cartItems" class="status" style="margin-top:14px"></div>
+      <div class="status-item" style="margin-top:10px">
+        <span>Total</span>
+        <strong style="margin-left:auto" id="cartTotal">Rs. 0</strong>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <section class="page-title">
+      <div class="wrap">
+        <div class="tag">CHECKOUT</div>
+        <h2>Place your order</h2>
+      </div>
+    </section>
+
+    <section style="padding-top:10px">
+      <div class="wrap split">
+        <div class="glass card">
+          <div class="tag">COMPLETE ORDER FORM</div>
+
+          <div class="order-row" style="margin-top:18px">
+            <input id="name" placeholder="Full name">
+            <input id="phone" placeholder="Phone number">
+            <input id="email" placeholder="Email address">
+            <select id="perfumeSelect"></select>
+            <input id="city" placeholder="City">
+            <input id="province" placeholder="Province">
+            <input id="postal" placeholder="Postal code">
+            <input id="quantity" type="number" min="1" value="1" placeholder="Quantity">
+          </div>
+
+          <div style="margin-top:14px">
+            <input id="address" placeholder="Full address">
+          </div>
+
+          <div class="order-row" style="margin-top:14px">
+            <select id="payment">
+              <option>Cash on Delivery</option>
+              <option>JazzCash</option>
+              <option>NayaPay</option>
+            </select>
+            <input id="txn" placeholder="Transaction ID / reference">
+          </div>
+
+          <div style="margin-top:14px">
+            <textarea id="notes" placeholder="Notes, landmark, extra instructions"></textarea>
+          </div>
+
+          <div class="hero-actions">
+            <button class="btn" id="submitOrder">Place Order</button>
+            <button class="btn2" id="sendWA">Send to WhatsApp</button>
+          </div>
+
+          <div id="formStatus" class="muted" style="margin-top:12px"></div>
+        </div>
+
+        <div class="glass card">
+          <div class="tag">CUSTOMER HIGHLIGHTS</div>
+          <div class="status">
+            <div class="status-item">🔥 <span id="viewers">12 people viewing now</span></div>
+            <div class="status-item">⚡ <span>Exclusive offer ending soon</span></div>
+            <div class="status-item">👑 <span>Recommended fragrance selected for you</span></div>
+            <div class="status-item">✨ <span>Luxury 3D premium experience</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
