@@ -1,4 +1,4 @@
-const API='http://localhost:8080';
+const API_BASE = 'https://amdani-site.onrender.com';
 const qs=id=>document.getElementById(id);
 let adminProducts=[];
 async function loadStats(){const r=await fetch(`${API}/api/admin/stats`); const d=await r.json(); qs('statOrders').textContent=d.total_orders||0; qs('statPending').textContent=d.pending_orders||0; qs('statDelivered').textContent=d.delivered_orders||0; qs('statRevenue').textContent=`Rs. ${d.total_revenue||0}`;}
