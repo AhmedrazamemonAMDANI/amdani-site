@@ -1,5 +1,6 @@
-const API_BASE = 'https://amdani-site.onrender.com';
-
+const API_BASE = window.location.hostname.includes('netlify.app')
+  ? 'https://amdani-site.onrender.com'
+  : 'http://localhost:8080';
 const IN_FRONTEND_PAGE = window.location.pathname.includes('/frontend/');
 const PAGE_PREFIX = IN_FRONTEND_PAGE ? '' : 'frontend/';
 const ASSET_PREFIX = IN_FRONTEND_PAGE ? 'assets/' : 'frontend/assets/';
