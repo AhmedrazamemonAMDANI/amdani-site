@@ -1,12 +1,4 @@
-const IS_FILE = window.location.protocol === 'file:';
-const IS_LOCALHOST = ['localhost', '127.0.0.1'].includes(window.location.hostname);
-const IS_BACKEND_SERVER = window.location.port === '8080';
-
-const API_BASE = IS_FILE
-  ? 'http://localhost:8080'
-  : IS_BACKEND_SERVER
-    ? ''
-    : '';
+const API_BASE = 'https://amdani-site.onrender.com';
 
 const IN_FRONTEND_PAGE = window.location.pathname.includes('/frontend/');
 const PAGE_PREFIX = IN_FRONTEND_PAGE ? '' : 'frontend/';
