@@ -14,13 +14,17 @@ async function loadStats() {
 async function loadOrders() {
   const r = await fetch(`${API_BASE}/api/admin/orders`);
   const d = await r.json();
+
   qs('ordersBody').innerHTML = (d.orders || []).map(o => `
     <tr>
-      <td>${o.id}</td>
-      <td>${o.tracking_id}</td>
-      <td>${o.full_name}</td>
-      <td>${o.phone}</td>
-      <td>${o.perfume_name}</td>
+      <td>${o.id ?? ''}</td>
+      <td>${o.tracking_id ?? ''}</td>
+      <td>${o.full_name ?? ''}</td>
+      <td>${o.phone ?? ''}</td>
+      <td>${o.address ?? ''}</td>
+      <td>${o.city ?? ''}</td>
+      <td>${o.postal_code ?? ''}</td>
+      <td>${o.perfume_name ?? ''}</td>
       <td>
         <select onchange="updateStatus(${o.id},this.value)">
           ${['pending','confirmed','shipped','delivered'].map(s => `
@@ -28,7 +32,7 @@ async function loadOrders() {
           `).join('')}
         </select>
       </td>
-      <td>Rs. ${o.total_amount}</td>
+      <td>Rs. ${o.total_amount ?? 0}</td>
     </tr>
   `).join('');
 }
