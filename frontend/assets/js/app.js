@@ -1,4 +1,6 @@
 const API_BASE = 'https://amdani-site.onrender.com';
+const SELLER_WHATSAPP = '923308421812'; // yahan apna seller/admin WhatsApp number lagao
+
 const IN_FRONTEND_PAGE = window.location.pathname.includes('/frontend/');
 const PAGE_PREFIX = IN_FRONTEND_PAGE ? '' : 'frontend/';
 const ASSET_PREFIX = IN_FRONTEND_PAGE ? 'assets/' : 'frontend/assets/';
@@ -532,30 +534,42 @@ function setupOrderPage() {
     const payload = {
       full_name: qs('name')?.value || '',
       phone: qs('phone')?.value || '',
+      email: qs('email')?.value || '',
       perfume_name: perfume?.name || '',
       quantity: Number(qs('quantity')?.value || '1'),
       city: qs('city')?.value || '',
       province: qs('province')?.value || '',
+      postal_code: qs('postal')?.value || '',
       address: qs('address')?.value || '',
-      payment_method: qs('payment')?.value || ''
+      payment_method: qs('payment')?.value || '',
+      transaction_id: qs('txn')?.value || '',
+      notes: qs('notes')?.value || ''
     };
 
-    const msg =
-      `Thank you for shopping with Amdani Fragrances.%0A%0A` +
-      `Your order has been received successfully.%0A` +
-      `Please confirm your order.%0A%0A` +
-      `Order Details:%0A` +
-      `Name: ${encodeURIComponent(payload.full_name)}%0A` +
-      `Phone: ${encodeURIComponent(payload.phone)}%0A` +
-      `Perfume: ${encodeURIComponent(payload.perfume_name)}%0A` +
-      `Quantity: ${payload.quantity}%0A` +
-      `City: ${encodeURIComponent(payload.city)}%0A` +
-      `Province: ${encodeURIComponent(payload.province)}%0A` +
-      `Address: ${encodeURIComponent(payload.address)}%0A` +
-      `Payment: ${encodeURIComponent(payload.payment_method)}%0A%0A` +
-      `Reply with:%0AYES - Confirm Order%0ANO - Cancel Order`;
+    if (!payload.full_name || !payload.phone || !payload.perfume_name || !payload.address) {
+      qs('formStatus').textContent = 'Please fill name, phone, perfume and address first.';
+      return;
+    }
 
-    window.open(`https://wa.me/${normalizePhone(payload.phone)}?text=${msg}`, '_blank');
+    const msg = `New order received from website
+
+Name: ${payload.full_name}
+Phone: ${payload.phone}
+Email: ${payload.email}
+Perfume: ${payload.perfume_name}
+Quantity: ${payload.quantity}
+City: ${payload.city}
+Province: ${payload.province}
+Postal Code: ${payload.postal_code}
+Address: ${payload.address}
+Payment: ${payload.payment_method}
+Transaction ID: ${payload.transaction_id}
+Notes: ${payload.notes}`;
+
+    window.open(
+      `https://wa.me/${SELLER_WHATSAPP}?text=${encodeURIComponent(msg)}`,
+      '_blank'
+    );
   });
 }
 
