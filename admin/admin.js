@@ -3,71 +3,90 @@ const qs = id => document.getElementById(id);
 let adminProducts = [];
 
 async function loadStats() {
-  const r = await fetch(`${API_BASE}/api/admin/stats`);
-  const d = await r.json();
-  qs('statOrders').textContent = d.total_orders ?? 0;
-  qs('statPending').textContent = d.pending_orders ?? 0;
-  qs('statDelivered').textContent = d.delivered_orders ?? 0;
-  qs('statRevenue').textContent = `Rs. ${d.total_revenue ?? 0}`;
+  try {
+    const r = await fetch(`${API_BASE}/api/admin/stats`);
+    const d = await r.json();
+    qs('statOrders').textContent = d.total_orders ?? 0;
+    qs('statPending').textContent = d.pending_orders ?? 0;
+    qs('statDelivered').textContent = d.delivered_orders ?? 0;
+    qs('statRevenue').textContent = `Rs. ${d.total_revenue ?? 0}`;
+  } catch (e) {
+    qs('adminMsg').textContent = 'Failed to load stats.';
+  }
 }
 
 async function loadOrders() {
-  const r = await fetch(`${API_BASE}/api/admin/orders`);
-  const d = await r.json();
+  try {
+    const r = await fetch(`${API_BASE}/api/admin/orders`);
+    const d = await r.json();
 
-  qs('ordersBody').innerHTML = (d.orders || []).map(o => `
-    <tr>
-      <td>${o.id ?? ''}</td>
-      <td>${o.tracking_id ?? ''}</td>
-      <td>${o.full_name ?? ''}</td>
-      <td>${o.phone ?? ''}</td>
-      <td>${o.address ?? ''}</td>
-      <td>${o.city ?? ''}</td>
-      <td>${o.postal_code ?? ''}</td>
-      <td>${o.perfume_name ?? ''}</td>
-      <td>
-        <select onchange="updateStatus(${o.id},this.value)">
-          ${['pending','confirmed','shipped','delivered'].map(s => `
-            <option value="${s}" ${o.status === s ? 'selected' : ''}>${s}</option>
-          `).join('')}
-        </select>
-      </td>
-      <td>Rs. ${o.total_amount ?? 0}</td>
-    </tr>
-  `).join('');
+    qs('ordersBody').innerHTML = (d.orders || []).map(o => `
+      <tr>
+        <td>${o.id ?? ''}</td>
+        <td>${o.tracking_id ?? ''}</td>
+        <td>${o.full_name ?? ''}</td>
+        <td>${o.phone ?? ''}</td>
+        <td>${o.address ?? ''}</td>
+        <td>${o.city ?? ''}</td>
+        <td>${o.postal_code ?? ''}</td>
+        <td>${o.perfume_name ?? ''}</td>
+        <td>
+          <select onchange="updateStatus(${o.id},this.value)">
+            ${['pending','confirmed','shipped','delivered'].map(s => `
+              <option value="${s}" ${o.status === s ? 'selected' : ''}>${s}</option>
+            `).join('')}
+          </select>
+        </td>
+        <td>Rs. ${o.total_amount ?? 0}</td>
+      </tr>
+    `).join('');
+  } catch (e) {
+    qs('adminMsg').textContent = 'Failed to load orders.';
+  }
 }
 
 async function loadProducts() {
-  const r = await fetch(`${API_BASE}/api/products`);
-  const d = await r.json();
-  adminProducts = d.products || [];
-  qs('productsBody').innerHTML = adminProducts.map(p => `
-    <tr>
-      <td>${p.id}</td>
-      <td>${p.name}</td>
-      <td>${p.type}</td>
-      <td>Rs. ${p.price}</td>
-      <td>${p.stock}</td>
-      <td>${p.lasting || ''}</td>
-      <td><button class="btn2" onclick="fillProductById(${p.id})">Edit</button></td>
-    </tr>
-  `).join('');
+  try {
+    const r = await fetch(`${API_BASE}/api/products`);
+    const d = await r.json();
+    adminProducts = d.products || [];
+
+    qs('productsBody').innerHTML = adminProducts.map(p => `
+      <tr>
+        <td>${p.id}</td>
+        <td>${p.name}</td>
+        <td>${p.type}</td>
+        <td>Rs. ${p.price}</td>
+        <td>${p.stock}</td>
+        <td>${p.lasting || ''}</td>
+        <td><button class="btn2" onclick="fillProductById(${p.id})">Edit</button></td>
+      </tr>
+    `).join('');
+  } catch (e) {
+    qs('adminMsg').textContent = 'Failed to load products.';
+  }
 }
 
 async function updateStatus(id, status) {
-  await fetch(`${API_BASE}/api/admin/orders/${id}/status`, {
-    method: 'PATCH',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ status })
-  });
-  loadStats();
-  loadOrders();
+  try {
+    await fetch(`${API_BASE}/api/admin/orders/${id}/status`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ status })
+    });
+    loadStats();
+    loadOrders();
+    qs('adminMsg').textContent = 'Order status updated.';
+  } catch (e) {
+    qs('adminMsg').textContent = 'Failed to update order status.';
+  }
 }
 window.updateStatus = updateStatus;
 
 window.fillProductById = function(id) {
   const p = adminProducts.find(x => Number(x.id) === Number(id));
   if (!p) return;
+
   qs('pId').value = p.id || '';
   qs('pName').value = p.name || '';
   qs('pCategory').value = p.category || '';
@@ -116,34 +135,43 @@ qs('saveBtn').addEventListener('click', async () => {
     ? `${API_BASE}/api/admin/products/${id}`
     : `${API_BASE}/api/admin/products`;
 
-  const r = await fetch(url, {
-    method,
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(payload())
-  });
+  try {
+    const r = await fetch(url, {
+      method,
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload())
+    });
 
-  const d = await r.json();
-  qs('adminMsg').textContent = d.success ? 'Saved successfully' : 'Save failed';
-  loadProducts();
+    const d = await r.json();
+    qs('adminMsg').textContent = d.success ? 'Saved successfully' : 'Save failed';
+    loadProducts();
+  } catch (e) {
+    qs('adminMsg').textContent = 'Save failed';
+  }
 });
 
 qs('deleteBtn').addEventListener('click', async () => {
   const id = qs('pId').value.trim();
   if (!id) return;
 
-  const r = await fetch(`${API_BASE}/api/admin/products/${id}`, {
-    method: 'DELETE'
-  });
+  try {
+    const r = await fetch(`${API_BASE}/api/admin/products/${id}`, {
+      method: 'DELETE'
+    });
 
-  const d = await r.json();
-  qs('adminMsg').textContent = d.success ? 'Deleted successfully' : 'Delete failed';
-  loadProducts();
+    const d = await r.json();
+    qs('adminMsg').textContent = d.success ? 'Deleted successfully' : 'Delete failed';
+    loadProducts();
+  } catch (e) {
+    qs('adminMsg').textContent = 'Delete failed';
+  }
 });
 
 qs('refreshBtn').addEventListener('click', () => {
   loadStats();
   loadOrders();
   loadProducts();
+  qs('adminMsg').textContent = 'Data refreshed.';
 });
 
 qs('searchBtn').addEventListener('click', () => {
