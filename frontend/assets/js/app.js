@@ -165,13 +165,6 @@ function setupFloatingCart() {
   });
 }
 
-function normalizePhone(phone) {
-  let p = (phone || '').replace(/\D/g, '');
-  if (p.startsWith('0')) p = '92' + p.slice(1);
-  if (p && !p.startsWith('92')) p = '92' + p;
-  return p;
-}
-
 function initCursorGlow() {
   const glow = qs('cursorGlow');
   if (!glow) return;
@@ -297,10 +290,6 @@ function productCard(p) {
 
       <h4 style="font:500 28px Georgia,serif;margin:16px 0 0">${p.name}</h4>
       <div class="muted">${p.category || ''}</div>
-
-      <div class="images">
-        ${['Front View', 'Bottle Angle', 'Gift Box', 'Premium Cap'].map(i => `<div class="imgbox">${i}</div>`).join('')}
-      </div>
 
       <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px">
         ${String(p.top_notes || '').split(',').slice(0, 3).map(n => `<span class="pill">${n.trim()}</span>`).join('')}
@@ -444,13 +433,6 @@ function renderProductDetail() {
       <strong>Customer Reviews</strong>
       ${reviews.map(r => `<div class="review">★★★★★<br><strong>${r.name}</strong><br>${r.text}</div>`).join('')}
     </div>
-
-    <div class="glass card" style="margin-top:20px">
-      <strong>Why customers choose this fragrance</strong>
-      <p class="muted" style="margin-top:10px">
-        Premium inspired scent profile, elegant presentation, and a refined fragrance experience suitable for gifting and everyday wear.
-      </p>
-    </div>
   `;
 }
 
@@ -579,10 +561,7 @@ Payment: ${payload.payment_method}
 Transaction ID: ${payload.transaction_id}
 Notes: ${payload.notes}`;
 
-    window.open(
-      `https://wa.me/${SELLER_WHATSAPP}?text=${encodeURIComponent(msg)}`,
-      '_blank'
-    );
+    window.open(`https://wa.me/${SELLER_WHATSAPP}?text=${encodeURIComponent(msg)}`, '_blank');
   });
 }
 
