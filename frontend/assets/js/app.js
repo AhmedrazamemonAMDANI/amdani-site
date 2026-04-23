@@ -1,5 +1,5 @@
 const API_BASE = 'https://amdani-site.onrender.com';
-const SELLER_WHATSAPP = '923308421812'; // yahan apna seller/admin WhatsApp number lagao
+const SELLER_WHATSAPP = '923308421812';
 
 const IN_FRONTEND_PAGE = window.location.pathname.includes('/frontend/');
 const PAGE_PREFIX = IN_FRONTEND_PAGE ? '' : 'frontend/';
@@ -187,19 +187,17 @@ function randomPopup() {
   const viewers = qs('viewers');
   if (!popup) return;
 
-  const names = [
-    'Ahmed from Karachi',
-    'Ali from Lahore',
-    'Usman from Islamabad',
-    'Areeba from Hyderabad',
-    'Hina from Multan'
+  const messages = [
+    'Explore premium inspired fragrances crafted for elegance and everyday wear.',
+    'Need help choosing a fragrance? Contact support on WhatsApp.',
+    'Luxury inspired scents with smooth ordering and customer support.',
+    'Discover signature fragrances for daily wear, gifting, and special occasions.'
   ];
 
-  const product = store.products[Math.floor(Math.random() * store.products.length)]?.name || 'Royal Oud';
-  popup.textContent = `${names[Math.floor(Math.random() * names.length)]} just ordered ${product}`;
+  popup.textContent = messages[Math.floor(Math.random() * messages.length)];
 
   if (viewers) {
-    viewers.textContent = `${Math.floor(Math.random() * 9) + 8} people viewing now`;
+    viewers.textContent = 'Customer support available for fragrance guidance';
   }
 }
 
@@ -317,7 +315,7 @@ function productCard(p) {
         <div>
           <div class="price-old">${money(p.old_price)}</div>
           <div class="price-new">Now ${money(p.price)}</div>
-          <div class="muted" style="font-size:13px;margin-top:4px">Only ${p.stock} left</div>
+          <div class="muted" style="font-size:13px;margin-top:4px">Available while stock lasts</div>
         </div>
 
         <div style="display:flex;flex-direction:column;gap:10px">
@@ -416,6 +414,14 @@ function renderProductDetail() {
             <strong>Lasting</strong>
             <span style="margin-left:auto">${p.lasting}</span>
           </div>
+          <div class="status-item">
+            <strong>Best For</strong>
+            <span style="margin-left:auto">${p.best_for || 'Daily wear'}</span>
+          </div>
+          <div class="status-item">
+            <strong>Projection</strong>
+            <span style="margin-left:auto">${p.projection || 'Balanced'}</span>
+          </div>
         </div>
 
         <p class="muted">${p.description}</p>
@@ -431,12 +437,19 @@ function renderProductDetail() {
       <div class="glass card"><strong>Top Notes</strong><p class="muted">${p.top_notes}</p></div>
       <div class="glass card"><strong>Heart Notes</strong><p class="muted">${p.heart_notes}</p></div>
       <div class="glass card"><strong>Base Notes</strong><p class="muted">${p.base_notes}</p></div>
-      <div class="glass card"><strong>Extra</strong><p class="muted">Longevity: ${p.longevity}<br>Projection: ${p.projection}<br>Best For: ${p.best_for}</p></div>
+      <div class="glass card"><strong>Extra Details</strong><p class="muted">Longevity: ${p.longevity}<br>Projection: ${p.projection}<br>Best For: ${p.best_for}</p></div>
     </div>
 
     <div class="glass card" style="margin-top:20px">
       <strong>Customer Reviews</strong>
       ${reviews.map(r => `<div class="review">★★★★★<br><strong>${r.name}</strong><br>${r.text}</div>`).join('')}
+    </div>
+
+    <div class="glass card" style="margin-top:20px">
+      <strong>Why customers choose this fragrance</strong>
+      <p class="muted" style="margin-top:10px">
+        Premium inspired scent profile, elegant presentation, and a refined fragrance experience suitable for gifting and everyday wear.
+      </p>
     </div>
   `;
 }
@@ -524,7 +537,7 @@ function setupOrderPage() {
       saveCart();
       renderHeaderCart();
     } catch (e) {
-      qs('formStatus').textContent = 'Backend not connected yet. Use WhatsApp button for now.';
+      qs('formStatus').textContent = 'We could not process the order right now. Please try again or contact support on WhatsApp.';
     }
   });
 
@@ -592,7 +605,7 @@ function setupTrackingPage() {
         <div class="status-item"><strong>Status:</strong><span style="margin-left:auto">${data.status}</span></div>
       `;
     } catch (e) {
-      box.innerHTML = '<div class="status-item">Order not found</div>';
+      box.innerHTML = '<div class="status-item">Order not found. Please check your tracking ID or contact support on WhatsApp.</div>';
     }
   });
 }
