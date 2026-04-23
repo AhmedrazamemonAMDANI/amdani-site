@@ -3,18 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Amdani Fragrances</title>
+  <title>Amdani Fragrances | Luxury Inspired Perfumes</title>
+  <meta name="description" content="Discover premium inspired fragrances by Amdani Fragrances. Elegant scents, luxury presentation, and smooth ordering across Pakistan." />
   <link rel="stylesheet" href="frontend/assets/css/styles.css" />
 </head>
 <body>
   <div class="cursor-glow" id="cursorGlow"></div>
 
   <div class="float-bottle logo-bottle">
-    <img src="frontend/assets/images/RaxaXc.jpg" alt="Amdani bottle" />
+    <img src="frontend/assets/images/RaxaXc.jpg" alt="Amdani Fragrances bottle" />
   </div>
 
   <div class="topbar">
-    Premium inspired fragrances with elegant presentation and nationwide delivery.
+    Premium inspired fragrances crafted for elegance, confidence, and lasting impression.
   </div>
 
   <header>
@@ -40,7 +41,7 @@
 
       <div style="display:flex;gap:10px;flex-wrap:wrap">
         <button class="btn2" id="openCartBtn">Cart</button>
-        <a class="btn" href="https://wa.me/923103240592" target="_blank">Order on WhatsApp</a>
+        <a class="btn" href="https://wa.me/923308421812" target="_blank" rel="noopener">Order on WhatsApp</a>
       </div>
     </div>
   </header>
@@ -69,13 +70,13 @@
     <section>
       <div class="wrap hero">
         <div>
-          <span class="eyebrow">PREMIUM FRAGRANCE COLLECTION</span>
+          <span class="eyebrow">SIGNATURE LUXURY FRAGRANCES</span>
 
           <h2 class="big">
             Discover Your <span class="grad">Signature Scent</span>
           </h2>
 
-          <div class="vip-badge">Elegant fragrances for every occasion</div>
+          <div class="vip-badge">Crafted for elegance and everyday confidence</div>
 
           <div class="vip-strip">
             <button class="vip-btn">Long Lasting Fragrances</button>
@@ -85,41 +86,27 @@
           </div>
 
           <p class="muted">
-            Luxury fragrances crafted to leave a lasting impression. Explore premium inspired scents,
-            elegant presentation, and a smooth ordering experience designed for fragrance lovers across Pakistan.
+            Explore premium inspired fragrances designed for style, confidence, gifting, and memorable everyday wear.
+            Amdani Fragrances brings elegant presentation, smooth ordering, and trusted customer support together in one luxury experience.
           </p>
 
           <div class="hero-actions">
             <a class="btn" href="frontend/products.html">Shop Collection</a>
-            <a class="btn2" href="https://wa.me/923103240592" target="_blank">Order on WhatsApp</a>
+            <a class="btn2" href="frontend/order.html">Place an Order</a>
           </div>
 
           <div class="grid2" style="margin-top:18px">
             <div class="glass feature">Secure ordering with COD and digital payment options.</div>
-            <div class="glass feature">Premium fragrance experience with responsive customer support.</div>
+            <div class="glass feature">Luxury inspired scents with responsive customer support.</div>
           </div>
         </div>
 
         <div class="hero-right">
           <div class="halo"></div>
           <div class="hero-bottle logo-bottle">
-            <img src="frontend/assets/images/RaxaXc.jpg" alt="Amdani luxury image" />
+            <img src="frontend/assets/images/RaxaXc.jpg" alt="Amdani luxury fragrance" />
           </div>
         </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="wrap">
-        <div class="section-head">
-          <div>
-            <div class="tag">BEST SELLERS</div>
-            <h3 style="margin:8px 0 0;font:500 48px Georgia,serif">Most loved fragrances</h3>
-          </div>
-          <a class="btn" href="frontend/products.html">View All Products</a>
-        </div>
-
-        <div class="grid3" id="productGrid"></div>
       </div>
     </section>
 
@@ -145,6 +132,20 @@
       </div>
     </section>
 
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="tag">BEST SELLERS</div>
+            <h3 style="margin:8px 0 0;font:500 48px Georgia,serif">Most loved fragrances</h3>
+          </div>
+          <a class="btn" href="frontend/products.html">View All Products</a>
+        </div>
+
+        <div class="grid3" id="productGrid"></div>
+      </div>
+    </section>
+
     <section id="why-us">
       <div class="wrap">
         <div class="section-head">
@@ -157,19 +158,65 @@
         <div class="grid4">
           <div class="glass card">
             <h4>Premium Inspired Fragrances</h4>
-            <p class="muted">Elegant scent profiles selected for style, confidence, and daily wear.</p>
+            <p class="muted">Elegant scent profiles selected for confidence, refinement, and memorable wear.</p>
           </div>
           <div class="glass card">
             <h4>Secure Ordering</h4>
-            <p class="muted">Order easily through website checkout or WhatsApp support.</p>
+            <p class="muted">Order smoothly through the website or directly on WhatsApp with quick support.</p>
           </div>
           <div class="glass card">
             <h4>Fast Delivery</h4>
-            <p class="muted">Smooth dispatch process with support for order updates and status checks.</p>
+            <p class="muted">Reliable dispatch flow with order confirmation and status support.</p>
           </div>
           <div class="glass card">
-            <h4>Customer Support</h4>
-            <p class="muted">Quick assistance for product guidance, orders, and delivery questions.</p>
+            <h4>Customer Guidance</h4>
+            <p class="muted">Need help choosing a fragrance? Our support is available to assist you.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap split">
+        <div class="glass card shine">
+          <div class="tag">SPIN & WIN</div>
+          <h3 style="margin:10px 0 0;font:500 42px Georgia,serif">Unlock your offer</h3>
+          <p class="muted">Try your daily spin to unlock a special discount on your selected fragrance.</p>
+
+          <div class="hero-actions">
+            <button class="btn" id="spinBtn">Spin Now</button>
+            <div class="glass" style="padding:14px 18px" id="spinResult">Your reward will appear here</div>
+          </div>
+
+          <div id="spinLockInfo" class="muted" style="margin-top:12px"></div>
+          <div class="count" id="timer"></div>
+        </div>
+
+        <div class="glass card">
+          <div class="tag">ORDER SUMMARY</div>
+          <h3 style="margin:10px 0 0;font:500 42px Georgia,serif" id="sumName">Royal Oud</h3>
+          <p class="muted" id="sumCat">Luxury Oud</p>
+
+          <div class="status">
+            <div class="status-item">
+              <span>Original Price</span>
+              <strong style="margin-left:auto" id="sumOld">Rs. 4000</strong>
+            </div>
+
+            <div class="status-item">
+              <span>Current Price</span>
+              <strong style="margin-left:auto;color:#ffe09a" id="sumCur">Rs. 2000</strong>
+            </div>
+
+            <div class="status-item">
+              <span>Your Price</span>
+              <strong style="margin-left:auto;color:#fff0b8" id="sumFinal">Rs. 2000</strong>
+            </div>
+
+            <div class="status-item">
+              <span>Lasting</span>
+              <strong style="margin-left:auto;color:#ffe09a" id="sumLasting">24 Hours</strong>
+            </div>
           </div>
         </div>
       </div>
@@ -184,7 +231,7 @@
             <div class="status-item">Cash on Delivery available</div>
             <div class="status-item">JazzCash and NayaPay supported</div>
             <div class="status-item">Order confirmation after submission</div>
-            <div class="status-item">WhatsApp support for assistance</div>
+            <div class="status-item">WhatsApp support for fragrance guidance</div>
           </div>
         </div>
 
@@ -203,14 +250,14 @@
         <div class="glass card">
           <div class="tag">TRACKING</div>
           <h3 style="margin:10px 0 0;font:500 42px Georgia,serif">Track your order</h3>
-          <p class="muted">Use your order tracking ID or contact support on WhatsApp for order status updates.</p>
+          <p class="muted">Use your tracking ID on the tracking page or contact support on WhatsApp for help.</p>
           <a class="btn" href="frontend/tracking.html">Open Tracking Page</a>
         </div>
 
         <div class="glass card">
           <div class="tag">ORDER NOW</div>
           <h3 style="margin:10px 0 0;font:500 42px Georgia,serif">Ready to order?</h3>
-          <p class="muted">Place your order through the website or contact support directly on WhatsApp.</p>
+          <p class="muted">Place your order through the website or contact us directly on WhatsApp.</p>
           <a class="btn" href="frontend/order.html">Open Order Page</a>
         </div>
       </div>
@@ -235,12 +282,12 @@
             <p class="muted">Cash on Delivery, JazzCash, and NayaPay are available.</p>
           </div>
           <div class="glass card">
-            <h4>How can I check my order status?</h4>
+            <h4>How can I track my order?</h4>
             <p class="muted">Use your tracking ID on the tracking page or contact support for manual assistance.</p>
           </div>
           <div class="glass card">
-            <h4>Do you offer support before ordering?</h4>
-            <p class="muted">Yes, we can help you choose the right fragrance through WhatsApp support.</p>
+            <h4>Can I get help choosing a fragrance?</h4>
+            <p class="muted">Yes. Contact us on WhatsApp and we will help you select the right scent.</p>
           </div>
         </div>
       </div>
@@ -249,11 +296,11 @@
 
   <div class="popup" id="livePopup">
     <div class="tag">AMDANI FRAGRANCES</div>
-    <div id="popupText" style="margin-top:8px">Explore premium inspired fragrances crafted for everyday elegance.</div>
+    <div id="popupText" style="margin-top:8px">Explore premium inspired fragrances crafted for elegance and everyday wear.</div>
   </div>
 
   <div class="floating-wa">
-    <a class="btn" href="https://wa.me/923103240592" target="_blank">WhatsApp</a>
+    <a class="btn" href="https://wa.me/923308421812" target="_blank" rel="noopener">WhatsApp</a>
   </div>
 
   <footer class="site-footer">
